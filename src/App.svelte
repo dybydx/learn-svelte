@@ -1,20 +1,28 @@
 <script lang="ts">
-  import Counter from "./lib/components/Counter.svelte";
-  import InfoBar from "./lib/components/InfoBar.svelte";
-
-  let name = "Prathamesh";
+  import { v4 as uuidv4 } from "uuid";
+  import ToDoList from "./lib/components/todos/ToDoList.svelte";
+  const todos = [
+    {
+      id: uuidv4(),
+      title: "Learn Svelte",
+      completed: false,
+    },
+    {
+      id: uuidv4(),
+      title: "Learn TypeScript",
+      completed: true,
+    },
+    {
+      id: uuidv4(),
+      title: "Learn Tailwind CSS",
+      completed: false,
+    },
+  ];
 </script>
 
 <div class="container w-5/6 mx-auto">
-  <h1>Hello, {name}</h1>
-  <InfoBar shadow>Hello, {name}</InfoBar>
-  <InfoBar type="success">What's up</InfoBar>
-  <InfoBar type="error" shadow />
-  <Counter />
+  <ToDoList {todos} />
 </div>
 
 <style lang="scss">
-  h1 {
-    @apply text-purple-700;
-  }
 </style>
