@@ -1,7 +1,11 @@
 <script lang="ts">
-  export let message: string;
+  import MdInfoOutline from "svelte-icons/md/MdInfoOutline.svelte";
+  import MdAddCircleOutline from "svelte-icons/md/MdAddCircleOutline.svelte";
+  import MdCheck from "svelte-icons/md/MdCheck.svelte";
+
   export let type: string = "info";
   export let shadow: boolean = false;
+  console.log($$slots);
 </script>
 
 <div
@@ -9,9 +13,19 @@
   class:success={type === "success"}
   class:info={type === "info" || !type}
   class:shadow
-  class={`flex items-center justify-between border rounded gap-20 p-4 my-4 h-16`}
+  class={`flex items-center justify-start border rounded gap-4 p-4 my-4 h-16`}
 >
-  <p>{message}</p>
+  <div class="icon">
+    {#if type === "error"}
+      <div style="transform: rotate(45deg)"><MdAddCircleOutline /></div>
+    {:else if type === "success"}
+      <MdCheck />
+    {:else}
+      <MdInfoOutline />
+    {/if}
+  </div>
+
+  <p><slot>No message defined</slot></p>
 </div>
 
 <style lang="scss">
@@ -29,5 +43,9 @@
 
   .shadow {
     @apply shadow-xl;
+  }
+
+  .icon {
+    width: 30px;
   }
 </style>

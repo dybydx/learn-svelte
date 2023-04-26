@@ -6,9 +6,9 @@
 
 <div class="container w-5/6 mx-auto">
   <h1>Hello, {name}</h1>
-  <InfoBar message="Hello, World!" shadow />
-  <InfoBar message="Hello, World!" type="success" />
-  <InfoBar message="Hello, World!" type="error" shadow />
+  <InfoBar shadow>Hello, {name}</InfoBar>
+  <InfoBar type="success">What's up</InfoBar>
+  <InfoBar type="error" shadow />
 </div>
 
 <style lang="scss">
