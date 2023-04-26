@@ -1,4 +1,5 @@
 <script lang="ts">
+  import Counter from "./lib/components/Counter.svelte";
   import InfoBar from "./lib/components/InfoBar.svelte";
 
   let name = "Prathamesh";
@@ -9,6 +10,7 @@
   <InfoBar shadow>Hello, {name}</InfoBar>
   <InfoBar type="success">What's up</InfoBar>
   <InfoBar type="error" shadow />
+  <Counter />
 </div>
 
 <style lang="scss">
