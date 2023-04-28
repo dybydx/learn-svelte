@@ -19,14 +19,17 @@
     },
   ];
 
-  $: {
-    console.log(todos);
+  function handleAddToDo(event) {
+    event.preventDefault();
+    todos = [
+      ...todos,
+      { id: uuidv4(), title: event.detail.title, completed: false },
+    ];
   }
 </script>
 
 <div class="container w-5/6 mx-auto my-6">
-  <h1>Total items in todo {todos.length}</h1>
-  <ToDoList bind:todos />
+  <ToDoList {todos} on:addTodo={handleAddToDo} />
 </div>
 
 <style lang="scss">
